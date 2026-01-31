@@ -1,18 +1,51 @@
+import os
+import json
+from dotenv import load_dotenv
+from google import genai
+
+load_dotenv()
+
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+PROMPT = """
+You are an agentic AI for SaaS migration support.
+
+Detect patterns across signals.
+Infer root cause.
+Estimate impact.
+Recommend safe actions.
+
+Root cause must be one of:
+migration_misconfiguration
+platform_regression
+documentation_gap
+merchant_error
+unknown
+
+INPUT SIGNALS:
+{signals}
+
+Return ONLY valid JSON:
+{{
+  "hypothesis": "",
+  "root_cause": "",
+  "confidence": 0.0,
+  "affected_merchants_estimate": 0,
+  "reasoning": "",
+  "recommended_action": "",
+  "risk_level": "low|medium|high"
+}}
+"""
+
+
 def reason(context):
-    tickets = context["tickets"]
-    errors = context["errors"]
+    filled_prompt = PROMPT.format(
+        signals=json.dumps(context, indent=2)
+    )
 
-    if len(tickets) >= 2 and errors:
-        return {
-            "hypothesis": "Migration caused payment API auth failure",
-            "confidence": 0.8,
-            "root_cause": "migration_misconfiguration",
-            "recommended_action": "Alert merchants to update API keys"
-        }
+    response = client.models.generate_content(
+        model="gemini-1.5-pro",
+        contents=filled_prompt
+    )
 
-    return {
-        "hypothesis": "Unknown issue",
-        "confidence": 0.3,
-        "root_cause": "unknown",
-        "recommended_action": "Investigate manually"
-    }
+    return json.loads(response.text)
