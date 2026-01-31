@@ -44,13 +44,18 @@ if st.button("Scan for New Migration Issues", type="secondary"):
         memory = load_memory() 
         context = observe() 
         
-        # Filter merchants to avoid re-scanning
+        # --- UPDATED FILTER LOGIC ---
+        # We find tickets that are either:
+        # 1. Not in memory at all
+        # 2. In memory but marked as 'pending_approval' (not yet resolved)
         new_tickets = [
             t for t in context.get("tickets", []) 
-            if t["merchant_id"] not in memory.get("helped_merchants", {})
+            if t["merchant_id"] not in memory.get("helped_merchants", {}) or 
+            memory.get("helped_merchants", {}).get(t["merchant_id"], {}).get("status") == "pending_approval"
         ]
         
         if new_tickets:
+            # Only perform reasoning on active (unresolved) signals
             new_context = {"tickets": new_tickets, "errors": context.get("errors", [])}
             analysis = reason(new_context, memory) 
             decision_result = decide(analysis)
@@ -126,6 +131,7 @@ if st.session_state.current_issue:
             
             context = observe()
             current_merchants = [t["merchant_id"] for t in context.get("tickets", [])]
+            # Update memory to flip status from 'pending' to 'resolved'
             update_memory(current_merchants, issue, status="resolved") 
             
             st.session_state.action_status = "Action Approved & Resolved"
@@ -144,28 +150,13 @@ if st.session_state.current_issue:
         else:
             st.warning(f"**{st.session_state.action_status}**")
 
-# 5. Display Execution Results
-if st.session_state.execution_result:
-    result = st.session_state.execution_result
-    st.markdown("---")
-    st.markdown("#### Execution Details")
-    
-    if result['status'] == 'executed':
-        st.success(f"{result['message']}")
-        if result.get('tool_result'):
-            with st.expander("View Full Tool Execution Log", expanded=False):
-                st.json(result['tool_result'])
-    elif result['status'] in ['pending_approval', 'monitoring']:
-        st.info(f"{result['message']}")
-    elif result['status'] == 'failed':
-        st.error(f"{result['message']}")
 
-# 6. Audit Log
+# 5. Audit Log
 st.markdown("---")
 st.markdown("**Decision History**")
 if st.session_state.audit_log:
     st.table(pd.DataFrame(st.session_state.audit_log))
 
-# 7. Memory Inspection
+# 6. Memory Inspection
 with st.expander("Debug: View Agent Long-Term Memory"):
     st.json(load_memory())
