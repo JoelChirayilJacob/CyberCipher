@@ -1,0 +1,23 @@
+[
+  {
+    "type": "support_ticket",
+    "merchant_id": "m5",
+    "message": "Webhook events stopped after migration - standard config issue",
+    "error": "webhook_url_mismatch",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m6",
+    "message": "Same webhook issue here",
+    "error": "webhook_url_mismatch",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "platform_error",
+    "service": "webhooks",
+    "error_code": "WEBHOOK_CONFIG_INVALID",
+    "count": 15,
+    "pattern": "all merchants using old webhook URL format"
+  }
+]
