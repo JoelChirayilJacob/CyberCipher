@@ -7,46 +7,52 @@ load_dotenv()
 
 client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
+# IMPROVED PROMPT: Directs the AI to perform pattern recognition between memory and new signals
 PROMPT = """
-You are an agentic AI for SaaS migration support.
+You are an autonomous AI Agent for SaaS migration support.
 
-Detect patterns across signals.
-Infer root cause.
-Estimate impact.
-Recommend safe actions.
+CORE OBJECTIVES:
+1. Pattern Recognition: Compare current {signals} against AGENT MEMORY {memory}.
+2. Feedback Loop: If a root cause was previously identified for a similar signal, reinforce or adjust the hypothesis.
+3. Impact Analysis: Determine how many merchants are affected by the current pattern.
 
-Root cause must be one of:
-migration_misconfiguration
-platform_regression
-documentation_gap
-merchant_error
-unknown
+Root cause categories:
+- migration_misconfiguration
+- platform_regression
+- documentation_gap
+- merchant_error
+- unknown
 
-INPUT SIGNALS:
-{signals}
+INSTRUCTIONS:
+- Search AGENT MEMORY for previous actions taken for these merchant_ids.
+- If the current error matches a historical trend, explain this in the 'reasoning' field.
+- Ensure the 'recommended_action' is specific and actionable based on the detected root cause.
 
 Return ONLY valid JSON:
 {{
-  "hypothesis": "",
-  "root_cause": "",
+  "hypothesis": "Short summary of what is happening",
+  "root_cause": "Select from categories above",
   "confidence": 0.0,
   "affected_merchants_estimate": 0,
-  "reasoning": "",
-  "recommended_action": "",
+  "reasoning": "Detailed explanation linking current signals to past memory",
+  "recommended_action": "Specific fix or escalation step",
   "risk_level": "low|medium|high"
 }}
 """
 
-
-def reason(context):
+def reason(context, memory):
+    """
+    Analyzes current migration signals using historical memory to identify root causes.
+    """
     try:
+        # Fulfills the 'Learning from previous actions' requirement by injecting history
         filled_prompt = PROMPT.format(
-            signals=json.dumps(context, indent=2)
+            signals=json.dumps(context, indent=2),
+            memory=json.dumps(memory, indent=2)
         )
         
-        print("[DEBUG] Calling Gemini API...")
+        print(f"[DEBUG] Reasoning cycle started for {len(context.get('tickets', []))} merchants.")
         
-        # Use strict JSON mode
         response = client.models.generate_content(
             model="gemini-flash-latest",
             contents=filled_prompt,
@@ -55,20 +61,17 @@ def reason(context):
             )
         )
         
-        print(f"[DEBUG] Got response!")
-        
-        # With JSON mode, response is already clean JSON
+        print("[DEBUG] Reasoning complete. State updated.")
         return json.loads(response.text)
     
     except Exception as e:
-        print(f"[ERROR] Reasoning failed: {e}")
-        # Return fallback
+        print(f"[ERROR] Agent reasoning failed: {e}")
         return {
-            "hypothesis": "API Error",
+            "hypothesis": "System degradation",
             "root_cause": "unknown",
             "confidence": 0.0,
             "affected_merchants_estimate": 0,
-            "reasoning": str(e),
-            "recommended_action": "Manual review needed",
+            "reasoning": f"Critical failure in reasoning module: {str(e)}",
+            "recommended_action": "Restart agent services and check API quotas",
             "risk_level": "high"
         }

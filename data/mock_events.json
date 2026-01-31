@@ -14,6 +14,20 @@
     "migration_stage": "post-headless"
   },
   {
+  "type": "support_ticket",
+  "merchant_id": "m3",
+  "message": "Payment fails on new site",
+  "error": "401 payment API",
+  "migration_stage": "post-headless"
+  },
+  {
+  "type": "support_ticket",
+  "merchant_id": "m4",
+  "message": "Site is slow and checkout intermittently fails with unknown errors",
+  "error": "Timeout / Generic 500",
+  "migration_stage": "post-headless"
+  },
+  {
     "type": "platform_error",
     "service": "checkout",
     "error_code": "AUTH_401",
