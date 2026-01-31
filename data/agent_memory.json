@@ -2,79 +2,61 @@
   "helped_merchants": {
     "m10": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
     },
     "m11": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
     },
     "m12": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m7": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m8": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m1": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m2": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m3": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
-    },
-    "m4": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
     },
     "m9": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m7": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m8": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m1": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m2": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m3": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
+    },
+    "m4": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
+      "status": "pending_approval"
     }
   },
   "history": [
     {
       "timestamp": "recent",
       "root_cause": "migration_misconfiguration",
-      "recommended_action": "High-priority escalation to the DevOps/SRE team. Initiate immediate deployment validation to verify and correct the payment gateway endpoint URLs and associated API keys in the production configuration files for the headless service architecture.",
+      "recommended_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
       "status": "pending_approval"
-    },
-    {
-      "timestamp": "recent",
-      "root_cause": "migration_misconfiguration",
-      "recommended_action": "High-priority immediate re-escalation to the DevOps/SRE team, referencing the 'pending_approval' status for the previous payment fix. Demand confirmation of execution and initiate a comprehensive configuration validation sweep to correct deployment variables for the payment gateway endpoint, webhook configuration formats for headless merchants, and ensure critical email templates and CDN paths are correctly mapped in the production environment.",
-      "status": "resolved"
-    },
-    {
-      "timestamp": "recent",
-      "root_cause": "migration_misconfiguration",
-      "recommended_action": "CRITICAL L3 Escalation to SRE/DevOps Leadership. Immediate deployment of the validated configuration files that were used in the previous fix. Simultaneously, freeze all standard configuration deployments and initiate an urgent, mandatory audit of the CI/CD pipeline responsible for deploying headless service environment variables to identify why the persistent configuration drift/overwrite is occurring.",
-      "status": "pending_approval"
-    },
-    {
-      "timestamp": "recent",
-      "root_cause": "migration_misconfiguration",
-      "recommended_action": "Immediate escalation to the Incident Management Team (IMT) and DevOps/SRE lead as a Severity 1 configuration regression incident. Demand a configuration lock-down and a mandatory root cause analysis on why the previous comprehensive validation sweep failed. Re-run the configuration validation sweep across all production environments, specifically verifying the payment gateway endpoint URLs, headless webhook formats, and CDN base paths, with mandatory two-person sign-off on deployment.",
-      "status": "resolved"
     }
   ]
 }

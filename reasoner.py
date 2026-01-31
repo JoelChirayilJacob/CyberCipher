@@ -27,12 +27,18 @@ INSTRUCTIONS:
 - Search AGENT MEMORY for previous actions taken for these merchant_ids.
 - If the current error matches a historical trend, explain this in the 'reasoning' field.
 - Ensure the 'recommended_action' is specific and actionable based on the detected root cause.
+- Set 'confidence' as a decimal between 0.0 and 1.0:
+  * 0.0-0.3: Very uncertain, conflicting signals
+  * 0.3-0.5: Low confidence, needs more data
+  * 0.5-0.7: Moderate confidence, some evidence
+  * 0.7-0.9: High confidence, strong evidence
+  * 0.9-1.0: Very high confidence, clear pattern or historical match
 
 Return ONLY valid JSON:
 {{
   "hypothesis": "Short summary of what is happening",
   "root_cause": "Select from categories above",
-  "confidence": 0.0,
+  "confidence": 0.85,
   "affected_merchants_estimate": 0,
   "reasoning": "Detailed explanation linking current signals to past memory",
   "recommended_action": "Specific fix or escalation step",
