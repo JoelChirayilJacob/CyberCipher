@@ -39,13 +39,36 @@ Return ONLY valid JSON:
 
 
 def reason(context):
-    filled_prompt = PROMPT.format(
-        signals=json.dumps(context, indent=2)
-    )
-
-    response = client.models.generate_content(
-        model="gemini-1.5-pro",
-        contents=filled_prompt
-    )
-
-    return json.loads(response.text)
+    try:
+        filled_prompt = PROMPT.format(
+            signals=json.dumps(context, indent=2)
+        )
+        
+        print("[DEBUG] Calling Gemini API...")
+        
+        # Use strict JSON mode
+        response = client.models.generate_content(
+            model="gemini-flash-latest",
+            contents=filled_prompt,
+            config=genai.types.GenerateContentConfig(
+                response_mime_type="application/json"
+            )
+        )
+        
+        print(f"[DEBUG] Got response!")
+        
+        # With JSON mode, response is already clean JSON
+        return json.loads(response.text)
+    
+    except Exception as e:
+        print(f"[ERROR] Reasoning failed: {e}")
+        # Return fallback
+        return {
+            "hypothesis": "API Error",
+            "root_cause": "unknown",
+            "confidence": 0.0,
+            "affected_merchants_estimate": 0,
+            "reasoning": str(e),
+            "recommended_action": "Manual review needed",
+            "risk_level": "high"
+        }
