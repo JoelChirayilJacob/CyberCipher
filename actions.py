@@ -96,7 +96,7 @@ def act(decision, analysis=None):
             "status": "executed",
             "action_type": action_type,
             "tool_result": result,
-            "message": f"✅ Successfully executed {tool_name}"
+            "message": f"Successfully executed {tool_name}"
         }
         
     except Exception as e:
@@ -104,5 +104,5 @@ def act(decision, analysis=None):
             "status": "failed",
             "action_type": action_type,
             "error": str(e),
-            "message": f"❌ Failed to execute {tool_name}: {str(e)}"
+            "message": f"Failed to execute {tool_name}: {str(e)}"
         }

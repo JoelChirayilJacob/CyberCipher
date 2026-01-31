@@ -1,6 +1,76 @@
 [
   {
     "type": "support_ticket",
+    "merchant_id": "m10",
+    "message": "Cart abandonment emails not sending after migration",
+    "error": "email_template_missing",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "platform_error",
+    "service": "email_service",
+    "error_code": "TEMPLATE_NOT_FOUND",
+    "count": 5,
+    "pattern": "email templates not migrated to new headless environment"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m11",
+    "message": "CRITICAL: All transactions failing with payment gateway error",
+    "error": "payment_gateway_unreachable",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m12",
+    "message": "Cannot process any orders - payment system down",
+    "error": "payment_gateway_unreachable",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "platform_error",
+    "service": "payment_gateway",
+    "error_code": "CONNECTION_REFUSED",
+    "count": 47,
+    "pattern": "payment gateway endpoint misconfigured in production"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m9",
+    "message": "Product images not loading on storefront",
+    "error": "cdn_path_incorrect",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "platform_error",
+    "service": "cdn",
+    "error_code": "CDN_PATH_404",
+    "count": 3,
+    "pattern": "cdn base url needs update for headless"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m7",
+    "message": "Webhook notifications stopped working after migration",
+    "error": "webhook_url_invalid",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "support_ticket",
+    "merchant_id": "m8",
+    "message": "Not receiving order webhooks on new headless setup",
+    "error": "webhook_delivery_failed",
+    "migration_stage": "post-headless"
+  },
+  {
+    "type": "platform_error",
+    "service": "webhooks",
+    "error_code": "WEBHOOK_CONFIG_MISMATCH",
+    "count": 12,
+    "pattern": "headless merchants using old webhook format"
+  },
+  {
+    "type": "support_ticket",
     "merchant_id": "m1",
     "message": "Checkout broken after migration",
     "error": "401 payment API",

@@ -4,7 +4,7 @@ from reasoner import reason
 from memory import load_memory, update_memory
 
 def start_safe_loop():
-    print("🛡️ CyberCipher Loop Active (Token-Safe Mode).")
+    print("CyberCipher Loop Active (Token-Safe Mode).")
     # Initialize count to current state to avoid immediate trigger on startup
     initial_context = observe()
     last_processed_count = sum(e.get("count", 0) for e in initial_context.get("errors", []))
