@@ -2,27 +2,27 @@
   "helped_merchants": {
     "m13": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
-      "status": "resolved"
-    },
-    "m14": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
-      "status": "resolved"
-    },
-    "m15": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
-      "status": "resolved"
-    },
-    "m16": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "last_action": "Prioritize a configuration audit for merchants m13 and m17, specifically checking environment variables related to session domains, cookie secure/samesite flags, and backend API gateway configuration for acceptable CORS origins.",
       "status": "resolved"
     },
     "m17": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "last_action": "Prioritize a configuration audit for merchants m13 and m17, specifically checking environment variables related to session domains, cookie secure/samesite flags, and backend API gateway configuration for acceptable CORS origins.",
+      "status": "resolved"
+    },
+    "m14": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "Initiate a high-priority technical audit focusing on external API integration configurations for merchants m14, m15, and m16. Specifically verify service API keys, security tokens, environmental endpoints, and necessary firewall whitelisting for the shipping provider, inventory management system, and transactional email service.",
+      "status": "resolved"
+    },
+    "m15": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "Initiate a high-priority technical audit focusing on external API integration configurations for merchants m14, m15, and m16. Specifically verify service API keys, security tokens, environmental endpoints, and necessary firewall whitelisting for the shipping provider, inventory management system, and transactional email service.",
+      "status": "resolved"
+    },
+    "m16": {
+      "last_issue": "migration_misconfiguration",
+      "last_action": "Initiate a high-priority technical audit focusing on external API integration configurations for merchants m14, m15, and m16. Specifically verify service API keys, security tokens, environmental endpoints, and necessary firewall whitelisting for the shipping provider, inventory management system, and transactional email service.",
       "status": "resolved"
     }
   },
@@ -30,7 +30,13 @@
     {
       "timestamp": "recent",
       "root_cause": "migration_misconfiguration",
-      "recommended_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "recommended_action": "Prioritize a configuration audit for merchants m13 and m17, specifically checking environment variables related to session domains, cookie secure/samesite flags, and backend API gateway configuration for acceptable CORS origins.",
+      "status": "resolved"
+    },
+    {
+      "timestamp": "recent",
+      "root_cause": "migration_misconfiguration",
+      "recommended_action": "Initiate a high-priority technical audit focusing on external API integration configurations for merchants m14, m15, and m16. Specifically verify service API keys, security tokens, environmental endpoints, and necessary firewall whitelisting for the shipping provider, inventory management system, and transactional email service.",
       "status": "resolved"
     }
   ]

@@ -3,7 +3,7 @@ import pandas as pd
 from observer import observe
 from reasoner import reason
 from decision import decide
-from actions import act
+from actions import act, extract_merchant_ids  # Added extract_merchant_ids
 from memory import load_memory, update_memory 
 
 # Custom CSS to force specific button colors
@@ -29,6 +29,7 @@ st.markdown("""
 
 st.markdown("### CyberCipher | SaaS Migration Support")
 
+# Initialize Session State
 if 'audit_log' not in st.session_state:
     st.session_state.audit_log = []
 if 'current_issue' not in st.session_state:
@@ -46,6 +47,7 @@ if 'expand_approve' not in st.session_state:
 if 'expand_reject' not in st.session_state:
     st.session_state.expand_reject = False
 
+# Background check for Toast Notifications
 memory = load_memory()
 context = observe()
 new_tickets_count = len([
@@ -64,6 +66,7 @@ if st.session_state.new_signals_detected and new_tickets_count > 0:
         with col_alert1:
             st.warning(f"**New Migration Signals Detected:** {new_tickets_count} unresolved issue(s) found.")
 
+# Main Scan Button
 if st.button("Scan for New Migration Issues", type="secondary"):
     st.session_state.new_signals_detected = False
     with st.spinner("Analyzing signals and filtering known issues..."):
@@ -95,6 +98,7 @@ if st.button("Scan for New Migration Issues", type="secondary"):
             st.session_state.current_issue = None
             st.success("No new issues detected. All current signals are already tracked in memory.")
 
+# Active Issue Display
 if st.session_state.current_issue:
     issue = st.session_state.current_issue
     decision_result = st.session_state.current_decision
@@ -137,6 +141,7 @@ if st.session_state.current_issue:
     
     is_action_taken = st.session_state.action_status is not None
     
+    # Selection UI (Approve or Reject)
     if not st.session_state.expand_approve and not st.session_state.expand_reject:
         c1, c2 = st.columns(2)
         with c1:
@@ -150,18 +155,22 @@ if st.session_state.current_issue:
                 st.session_state.expand_approve = False
                 st.rerun()
     
+    # Confirmation UI (Approve)
     elif st.session_state.expand_approve:
         st.success("**Approve this action?**")
         col_confirm, col_cancel = st.columns(2)
         with col_confirm:
             if st.button("Confirm", type="primary", use_container_width=True, key="approve_confirm"):
                 with st.spinner("Executing action..."):
+                    # 1. Execute technical action
                     execution_result = act(decision_result, issue)
                     st.session_state.execution_result = execution_result
                     
-                    context = observe()
-                    current_merchants = [t["merchant_id"] for t in context.get("tickets", [])]
-                    update_memory(current_merchants, issue, status="resolved") 
+                    # 2. ISOLATION FIX: Extract only target merchants from the analysis text
+                    target_merchants = extract_merchant_ids(str(issue))
+                    
+                    # 3. Update memory only for specific merchants identified in analysis
+                    update_memory(target_merchants, issue, status="resolved") 
                     
                     st.session_state.action_status = "Action Approved & Resolved"
                     st.session_state.expand_approve = False
@@ -171,6 +180,7 @@ if st.session_state.current_issue:
                 st.session_state.expand_approve = False
                 st.rerun()
     
+    # Confirmation UI (Reject)
     elif st.session_state.expand_reject:
         st.warning("**Reject this action?**")
         col_confirm, col_cancel = st.columns(2)
@@ -185,13 +195,17 @@ if st.session_state.current_issue:
                 st.session_state.expand_reject = False
                 st.rerun()
 
+    # Feedback Status
     if st.session_state.action_status:
         if "Approved" in st.session_state.action_status:
             st.success(f"**{st.session_state.action_status}**")
+            if st.session_state.execution_result:
+                with st.expander("View Execution Details"):
+                    st.json(st.session_state.execution_result)
         else:
             st.warning(f"**{st.session_state.action_status}**")
 
-
+# Audit and Debug
 st.markdown("---")
 st.markdown("**Decision History**")
 if st.session_state.audit_log:
