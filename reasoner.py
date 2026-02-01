@@ -16,6 +16,12 @@ CORE OBJECTIVES:
 2. Feedback Loop: If a root cause was previously identified for a similar signal, reinforce or adjust the hypothesis.
 3. Impact Analysis: Determine how many merchants are affected by the current pattern.
 
+CONFIDENCE SCORING GUIDE:
+- 0.90 - 1.00: Exact match in AGENT MEMORY for the same error code and migration stage across multiple merchants.
+- 0.70 - 0.89: Strong match with memory but involves a new merchant or slightly different error message.
+- 0.50 - 0.69: Partial match or recurring error with no clear historical fix recorded.
+- 0.00 - 0.49: New error type, no memory match, or conflicting signals.
+
 Root cause categories:
 - migration_misconfiguration
 - platform_regression
@@ -27,12 +33,6 @@ INSTRUCTIONS:
 - Search AGENT MEMORY for previous actions taken for these merchant_ids.
 - If the current error matches a historical trend, explain this in the 'reasoning' field.
 - Ensure the 'recommended_action' is specific and actionable based on the detected root cause.
-- Set 'confidence' as a decimal between 0.0 and 1.0:
-  * 0.0-0.3: Very uncertain, conflicting signals
-  * 0.3-0.5: Low confidence, needs more data
-  * 0.5-0.7: Moderate confidence, some evidence
-  * 0.7-0.9: High confidence, strong evidence
-  * 0.9-1.0: Very high confidence, clear pattern or historical match
 
 Return ONLY valid JSON:
 {{
@@ -44,7 +44,23 @@ Return ONLY valid JSON:
   "recommended_action": "Specific fix or escalation step",
   "risk_level": "low|medium|high"
 }}
-"""
+
+... (keep your existing objectives) ...
+
+STRICT SCORING RULES:
+- DO NOT default to 0.95.
+- You MUST calculate a unique confidence score based on the current evidence.
+- If there is 100% match with AGENT MEMORY for the same merchant and error, score = 0.98.
+- If it is a new merchant but a known error type, score = 0.85.
+- If the error code has never been seen before in signals or memory, score = 0.40.
+
+Return ONLY valid JSON:
+{{
+  "hypothesis": "...",
+  "confidence": <CALCULATED_FLOAT>,
+  ...
+}}
+"""     
 
 def reason(context, memory):
     """

@@ -1,53 +1,37 @@
 [
   {
-    "type": "analytics_degradation",
-    "merchant_id": "m1",
-    "message": "Dashboard metrics showing partial data - analytics queries slow but not failing",
-    "error": "analytics_query_timeout_increase",
-    "migration_stage": "post-headless",
-    "severity": "low",
-    "pattern_indicator": false
+    "type": "support_ticket",
+    "merchant_id": "m13",
+    "message": "Customer login fails with 'Session expired' immediately after login",
+    "error": "session_token_invalid",
+    "migration_stage": "post-headless"
   },
   {
-    "type": "api_rate_limit_breach",
-    "merchant_id": "m2",
-    "message": "Storefront experiencing intermittent 429 errors during peak hours",
-    "error": "RATE_LIMIT_EXCEEDED",
-    "migration_stage": "post-headless",
-    "severity": "medium",
-    "error_spike": 23,
-    "pattern": "headless API clients not respecting rate limit headers from new gateway"
+    "type": "support_ticket",
+    "merchant_id": "m14",
+    "message": "Checkout page freezes at shipping step, cannot proceed to payment",
+    "error": "shipping_calculation_timeout",
+    "migration_stage": "post-headless"
   },
   {
-    "type": "database_connection_pool",
-    "merchant_id": "m3",
-    "message": "Batch sync operations are hanging mid-process on inventory updates",
-    "error": "DB_CONNECTION_POOL_EXHAUSTED",
-    "migration_stage": "post-headless",
-    "severity": "medium",
-    "affected_operations": ["inventory_sync", "order_fulfillment"],
-    "pattern": "connection pool misconfigured for concurrent headless requests"
+    "type": "support_ticket",
+    "merchant_id": "m15",
+    "message": "Product inventory showing incorrect stock levels after migration",
+    "error": "inventory_sync_failure",
+    "migration_stage": "post-headless"
   },
   {
-    "type": "third_party_integration_failure",
-    "merchant_id": "m4",
-    "message": "CRITICAL: All fulfillment partner API calls failing - orders cannot be shipped",
-    "error": "FULFILLMENT_PARTNER_UNREACHABLE",
-    "migration_stage": "post-headless",
-    "severity": "high",
-    "error_count": 67,
-    "cascade_risk": "order backlog accumulation",
-    "pattern": "fulfillment partner IP whitelist not updated for new headless server IPs"
+    "type": "support_ticket",
+    "merchant_id": "m16",
+    "message": "Customer order confirmation emails not being delivered",
+    "error": "email_delivery_failed",
+    "migration_stage": "post-headless"
   },
   {
-    "type": "data_consistency_anomaly",
-    "merchant_id": "m5",
-    "message": "CRITICAL: Cart and order data mismatch detected - customer orders missing line items",
-    "error": "CART_ORDER_SYNC_FAILURE",
-    "migration_stage": "post-headless",
-    "severity": "high",
-    "inconsistency_rate": "8% of orders",
-    "affected_merchants_scope": 3,
-    "pattern": "headless checkout service not properly awaiting cart persistence before order creation"
+    "type": "support_ticket",
+    "merchant_id": "m17",
+    "message": "Shopping cart contents disappear when customer navigates between pages",
+    "error": "cart_session_lost",
+    "migration_stage": "post-headless"
   }
 ]

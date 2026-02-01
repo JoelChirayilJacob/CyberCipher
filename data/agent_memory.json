@@ -1,62 +1,37 @@
 {
   "helped_merchants": {
-    "m10": {
+    "m13": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     },
-    "m11": {
+    "m14": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     },
-    "m12": {
+    "m15": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     },
-    "m9": {
+    "m16": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     },
-    "m7": {
+    "m17": {
       "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
-    },
-    "m8": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
-    },
-    "m1": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
-    },
-    "m2": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
-    },
-    "m3": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
-    },
-    "m4": {
-      "last_issue": "migration_misconfiguration",
-      "last_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "last_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     }
   },
   "history": [
     {
       "timestamp": "recent",
       "root_cause": "migration_misconfiguration",
-      "recommended_action": "High-priority escalation to DevOps/SRE teams. Immediately audit and correct the production environment variables for the Payment Gateway API endpoints and credentials across all recently migrated headless merchants. This must be prioritized as it directly impacts revenue.",
-      "status": "pending_approval"
+      "recommended_action": "Initiate P0 incident bridging call involving infrastructure and backend teams. Prioritize immediate diagnostics on environment variables, API key validity checks, network access logs, and core service connectivity (e.g., Redis for sessions, database connections, SMTP configuration).",
+      "status": "resolved"
     }
   ]
 }
